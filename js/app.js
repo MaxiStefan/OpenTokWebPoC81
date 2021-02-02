@@ -50,7 +50,9 @@
     // Start publishing with the selected devices
     publisher = OT.initPublisher('publisher', {
       audioSource: audioSelector.value,
-      videoSource: videoSelector.value
+      videoSource: videoSelector.value,
+      width: '100%',
+      height: '100%'
     }, (err) => {
       if (err) {
         alert('Publish error ' + err.message);

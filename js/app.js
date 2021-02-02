@@ -46,7 +46,7 @@
     audioSelector.disabled = true;
     videoSelector.disabled = true;
     publishBtn.style.display = 'none';
-    
+
     // Start publishing with the selected devices
     publisher = OT.initPublisher('publisher', {
       audioSource: audioSelector.value,
@@ -85,18 +85,28 @@
       });
     });
 
-    // When the cycleVideo button is clicked we call cycleVideo
-    cycleVideoBtn.addEventListener('click', () => {
-      cycleVideoBtn.disabled = true;
-      publisher.cycleVideo().then(({ deviceId }) => {
-        videoSelector.value = deviceId;
-        cycleVideoBtn.disabled = false;
+    videoSelector.addEventListener('change', () => {
+      videoSelector.disabled = true;
+      publisher.setVideoSource(event.target.value).then(() => {
+        videoSelector.disabled = false;
       }).catch((err) => {
-        alert('cycleVideo error ' + err.message);
-        cycleVideoBtn.disabled = false;
+        alert(`setAudioSource failed: ${err.message}`);
+        videoSelector.disabled = false;
       });
     });
-    cycleVideoBtn.style.display = 'inline-block';
+
+    // When the cycleVideo button is clicked we call cycleVideo
+    // cycleVideoBtn.addEventListener('click', () => {
+    //   cycleVideoBtn.disabled = true;
+    //   publisher.cycleVideo().then(({ deviceId }) => {
+    //     videoSelector.value = deviceId;
+    //     cycleVideoBtn.disabled = false;
+    //   }).catch((err) => {
+    //     alert('cycleVideo error ' + err.message);
+    //     cycleVideoBtn.disabled = false;
+    //   });
+    // });
+    // cycleVideoBtn.style.display = 'inline-block';
   }
 
 

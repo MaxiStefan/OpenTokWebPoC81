@@ -43,10 +43,8 @@
 
   // Start publishing when you click the publish button
   publishBtn.addEventListener('click', () => {
-    // Disable the audio and video pickers and hide the publish button
-    // audioSelector.disabled = true;
-    // videoSelector.disabled = true;
-    // publishBtn.style.display = 'none';
+    if(publisher != null)
+      session.unpublish(publisher);
 
     // Start publishing with the selected devices
     publisher = OT.initPublisher('publisher', {

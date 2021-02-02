@@ -73,7 +73,8 @@
 
   function setupDeviceSwitching() {
     audioSelector.disabled = false;
-
+    videoSelector.disabled = false;
+    
     // When the audio selector changes we update the audio source
     audioSelector.addEventListener('change', () => {
       audioSelector.disabled = true;

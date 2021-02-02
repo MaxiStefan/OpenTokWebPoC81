@@ -43,8 +43,10 @@
 
   // Start publishing when you click the publish button
   publishBtn.addEventListener('click', () => {
-    if(publisher != null)
+    if(publisher != null){
       session.unpublish(publisher);
+      publisher.destroy();
+    }
 
     // Start publishing with the selected devices
     publisher = OT.initPublisher('publisher', {

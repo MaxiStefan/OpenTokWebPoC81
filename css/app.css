@@ -1,24 +1,12 @@
-/* 
-#videos {
-  position: relative;
+#subscriber {
   width: 100%;
   height: 100%;
-  z-index: 1;
-}
-
-#subscriber {
-  position: relative;
-  width: 50%;
-  height: 90%;
-  background-color: blue;
 }
 
 #publisher {
-  position: relative;
-  width: 50%;
-  height: 90%;
-  background-color: violet;
-} */
+  width: 100%;
+  height: 100%;
+} 
 
 /* Split the screen in half */
 .split {

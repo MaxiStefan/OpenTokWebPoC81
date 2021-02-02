@@ -40,7 +40,13 @@
     // If you don't do this then cycleVideo does not work on some Android devices
     stream.getTracks().forEach(track => track.stop());
   });
-
+  
+   var publisherOptions = {
+    insertMode: 'append',
+    width: '100%',
+    height: '100%'
+  };
+  
   // Start publishing when you click the publish button
   publishBtn.addEventListener('click', () => {
     audioSelector.disabled = true;
@@ -50,7 +56,8 @@
     // Start publishing with the selected devices
     publisher = OT.initPublisher('publisher', {
       audioSource: audioSelector.value,
-      videoSource: videoSelector.value,
+      videoSource: videoSelector.value,      
+      insertMode: 'append',
       width: '100%',
       height: '100%'
     }, (err) => {

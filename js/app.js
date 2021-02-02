@@ -20,6 +20,7 @@
         alert('getDevices error ' + err.message);
         return;
       }
+      publishBtn.disabled = false;
       let index = 0;
       selector.innerHTML = devices.reduce((innerHTML, device) => {
         if (device.kind === kind) {
